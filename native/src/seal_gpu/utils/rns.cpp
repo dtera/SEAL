@@ -433,7 +433,7 @@ namespace seal_gpu
             ConstHostPointer<uint64_t> in, HostPointer<uint64_t> out, size_t count) const
         {
 #ifdef SEAL_DEBUG
-            if (in.poly_modulus_degree() != out.poly_modulus_degree())
+            if (in.get() != out.get())
             {
                 throw invalid_argument("in and out are incompatible");
             }

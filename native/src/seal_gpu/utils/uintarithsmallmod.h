@@ -149,7 +149,7 @@ namespace seal_gpu
         inline std::uint64_t multiplyUintMod(std::uint64_t operand1, std::uint64_t operand2, const Modulus &modulus)
         {
 #ifdef SEAL_DEBUG
-            if (modulus.is_zero())
+            if (modulus.isZero())
             {
                 throw std::invalid_argument("modulus");
             }
