@@ -772,3 +772,16 @@ configure_file(
     ${CMAKE_CURRENT_LIST_DIR}/dotnet/nuget/SEALNet.nuspec.in
     ${CMAKE_CURRENT_BINARY_DIR}/dotnet/nuget/SEALNet.nuspec
     @ONLY)
+
+##########################
+#     SEAL C++ GPU       #
+##########################
+# [option] SEAL_ENABLE_GPU
+option(SEAL_ENABLE_GPU "whether enable gpu" OFF)
+message(STATUS "SEAL_ENABLE_GPU: ${SEAL_ENABLE_GPU}")
+if(SEAL_ENABLE_GPU)
+    add_subdirectory(native/src/seal_gpu)
+endif()
+if(SEAL_BUILD_EXAMPLES)
+    add_subdirectory(native/examples/seal_gpu)
+endif()
