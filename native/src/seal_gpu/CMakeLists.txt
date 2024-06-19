@@ -19,11 +19,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O3")
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --std=c++17")
 
 add_library(seal_gpu SHARED ${CURRENT_HEADERS} ${CURRENT_SOURCES})
-if(TARGET SEAL::seal)
+if (TARGET SEAL::seal)
     target_link_libraries(seal_gpu PRIVATE SEAL::seal)
-elseif(TARGET SEAL::seal_shared)
+elseif (TARGET SEAL::seal_shared)
     target_link_libraries(seal_gpu PRIVATE SEAL::seal_shared)
-endif()
+endif ()
 set_target_properties(seal_gpu PROPERTIES
         CXX_STANDARD ${CMAKE_CUDA_STANDARD}
         CXX_EXTENSIONS OFF

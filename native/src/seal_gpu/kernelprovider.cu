@@ -1,7 +1,8 @@
 #include "kernelprovider.cuh"
 
-namespace seal_gpu {
+namespace seal_gpu
+{
 
-bool KernelProvider::initialized = false;
+    bool KernelProvider::initialized = false;
 
 }
