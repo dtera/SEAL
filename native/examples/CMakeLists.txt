@@ -19,6 +19,7 @@ endif()
 
 if(SEAL_BUILD_EXAMPLES)
     add_executable(sealexamples)
+    add_executable(seal_histogram histogram.cpp)
 
     target_sources(sealexamples
         PRIVATE
@@ -35,8 +36,10 @@ if(SEAL_BUILD_EXAMPLES)
 
     if(TARGET SEAL::seal)
         target_link_libraries(sealexamples PRIVATE SEAL::seal)
+        target_link_libraries(seal_histogram PRIVATE SEAL::seal)
     elseif(TARGET SEAL::seal_shared)
         target_link_libraries(sealexamples PRIVATE SEAL::seal_shared)
+        target_link_libraries(seal_histogram PRIVATE SEAL::seal_shared)
     else()
         message(FATAL_ERROR "Cannot find target SEAL::seal or SEAL::seal_shared")
     endif()
